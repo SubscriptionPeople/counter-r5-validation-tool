@@ -28,10 +28,13 @@ class ShowController extends Controller {
     public $TransctionIdCurrent=0;
 
     public function __construct() {
-        $user = Session::get('user');
-        if ($user['email'] == '') {
-            return Redirect::to('login');
-        }
+       $this->middleware(function ($request, $next){
+           $user = Session::get('user');
+            if ($user['email'] == '') {
+                return Redirect::to('login');
+            }
+            return $next($request);
+        });
     }
 
     function checkview() {
