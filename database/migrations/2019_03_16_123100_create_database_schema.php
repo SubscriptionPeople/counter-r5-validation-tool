@@ -268,7 +268,7 @@ class CreateDatabaseSchema extends Migration
                         'provider_name',
                         'member_name',
                         'report_id'
-                    ]);
+                    ], 'user_transaction_config_provider_member_report');
                 $table->index('transaction_id');
             });
     }
